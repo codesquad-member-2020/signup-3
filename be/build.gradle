@@ -1,0 +1,30 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.5.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'io.codesquad.group3'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	runtimeOnly 'com.h2database:h2'
+	compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.6.1'
+	testCompile group: 'org.assertj', name: 'assertj-core', version: '3.15.0'
+	testCompile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+}
+
+test {
+	useJUnitPlatform()
+}
