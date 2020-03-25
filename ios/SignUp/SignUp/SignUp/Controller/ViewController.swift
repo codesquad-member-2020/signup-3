@@ -15,13 +15,9 @@ class ViewController: UIViewController {
         return view as! SignUpView
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         signupView.datasoure = manager
-        // Do any additional setup after loading the view.
     }
-
-
 }
 
