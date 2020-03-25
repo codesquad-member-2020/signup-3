@@ -10,8 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    private let manager = SignUpDataManager()
+    private var signupView: SignUpView {
+        return view as! SignUpView
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        signupView.datasoure = manager
         // Do any additional setup after loading the view.
     }
 
