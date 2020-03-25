@@ -15,6 +15,7 @@
 		AE241AC5242A9F4C009EE2F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE241AC3242A9F4C009EE2F5 /* LaunchScreen.storyboard */; };
 		AE241AD0242A9F4C009EE2F5 /* SignUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE241ACF242A9F4C009EE2F5 /* SignUpTests.swift */; };
 		AE36F9FF242B02E8006CE62B /* SignUpCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE36F9FE242B02E8006CE62B /* SignUpCustomView.swift */; };
+		AE36FA02242B0510006CE62B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE36FA01242B0510006CE62B /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		AE241ACF242A9F4C009EE2F5 /* SignUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTests.swift; sourceTree = "<group>"; };
 		AE241AD1242A9F4C009EE2F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE36F9FE242B02E8006CE62B /* SignUpCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCustomView.swift; sourceTree = "<group>"; };
+		AE36FA01242B0510006CE62B /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		AE241AB7242A9F4A009EE2F5 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				AE36FA00242B0508006CE62B /* Extension */,
 				AE36F9FC242B02D0006CE62B /* SignUp */,
 				AE241AB8242A9F4A009EE2F5 /* AppDelegate.swift */,
 				AE241ABA242A9F4A009EE2F5 /* SceneDelegate.swift */,
@@ -116,6 +119,14 @@
 				AE36F9FE242B02E8006CE62B /* SignUpCustomView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		AE36FA00242B0508006CE62B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AE36FA01242B0510006CE62B /* String.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +232,7 @@
 			files = (
 				AE241ABD242A9F4A009EE2F5 /* ViewController.swift in Sources */,
 				AE36F9FF242B02E8006CE62B /* SignUpCustomView.swift in Sources */,
+				AE36FA02242B0510006CE62B /* String.swift in Sources */,
 				AE241AB9242A9F4A009EE2F5 /* AppDelegate.swift in Sources */,
 				AE241ABB242A9F4A009EE2F5 /* SceneDelegate.swift in Sources */,
 			);
