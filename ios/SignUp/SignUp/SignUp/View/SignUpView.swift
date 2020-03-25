@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class SignUpCustomView: UIView {
+final class SignUpView: UIView {
     
     // MARK: - IBOutlets
     @IBOutlet weak var identifierTextField: UITextField!
@@ -26,8 +26,7 @@ final class SignUpCustomView: UIView {
     private let passwordTextFieldKey: String = "password"
     private let confirmPasswordTextFieldKey: String = "confirmPassword"
     private let nameTextFieldKey: String = "name"
-    private let identifierRegularExpression: String = "^[A-Za-z0-9_-]{5,20}$"
-    private let passwordRegularExpression: String = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,16}"
+    weak var datasoure: RegularExpression?
     
     // MARK: - Lifecycles
     
@@ -54,14 +53,13 @@ final class SignUpCustomView: UIView {
             && passwordStatusLabel.textColor == .systemGreen
             && confirmPasswordStatusLabel.textColor == .systemGreen
             && nameStatusLabel.text?.isEmpty ?? true
-        print(result)
         nextButton.tintColor = result ? .systemGreen : .systemGray
         nextButton.isEnabled = result ? true : false
         nextButton.setTitleColor(result ? .systemGreen : .systemGray, for: .normal)
     }
 }
 
-extension SignUpCustomView: UITextFieldDelegate {
+extension SignUpView: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         highlightingWithBlue(textField, boderWidth: 2.0)
         return true
@@ -82,23 +80,26 @@ extension SignUpCustomView: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text else { return }
         switch textField.restorationIdentifier {
         case identifierTextFieldKey:
-            let result = textField.text?.getArrayAfterRegex(regex: identifierRegularExpression).isEmpty ?? true
-            applyViewWithRegularExpression(
-                textField: textField,
-                label: idetnfierStatusLabel,
-                result: result,
-                message: ("5~20자의 영문 소문자, 숫자와 특수기호(_)(-) 만 사용 가능합니다.","사용 가능한 아이디입니다.")
-            )
+            datasoure?.regex(text, kinds: "identifier") { result, fail, sucess  in
+                applyViewWithRegularExpression(
+                    textField: textField,
+                    label: idetnfierStatusLabel,
+                    result: result,
+                    message: (fail,sucess)
+                )
+            }
         case passwordTextFieldKey:
-            let result = textField.text?.getArrayAfterRegex(regex: passwordRegularExpression).isEmpty ?? true
-            applyViewWithRegularExpression(
-                textField: textField,
-                label: passwordStatusLabel,
-                result: result,
-                message: ("사용할 수 없는 비밀번호입니다.","사용 가능한 비밀번호입니다.")
-            )
+            datasoure?.regex(text, kinds: "password") { result, fail, sucess in
+                applyViewWithRegularExpression(
+                    textField: textField,
+                    label: passwordStatusLabel,
+                    result: result,
+                    message: (fail, sucess)
+                )
+            }
         case confirmPasswordTextFieldKey:
             let result = passwordTextField.text == textField.text && !(textField.text?.isEmpty ?? true)
             applyViewWithRegularExpression(

@@ -14,8 +14,10 @@
 		AE241AC2242A9F4C009EE2F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE241AC1242A9F4C009EE2F5 /* Assets.xcassets */; };
 		AE241AC5242A9F4C009EE2F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE241AC3242A9F4C009EE2F5 /* LaunchScreen.storyboard */; };
 		AE241AD0242A9F4C009EE2F5 /* SignUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE241ACF242A9F4C009EE2F5 /* SignUpTests.swift */; };
-		AE36F9FF242B02E8006CE62B /* SignUpCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE36F9FE242B02E8006CE62B /* SignUpCustomView.swift */; };
+		AE36F9FF242B02E8006CE62B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE36F9FE242B02E8006CE62B /* SignUpView.swift */; };
 		AE36FA02242B0510006CE62B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE36FA01242B0510006CE62B /* String.swift */; };
+		AE36FA12242B3855006CE62B /* RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE36FA11242B3855006CE62B /* RegularExpression.swift */; };
+		AE36FA16242B389A006CE62B /* SignUpDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE36FA15242B389A006CE62B /* SignUpDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +42,10 @@
 		AE241ACB242A9F4C009EE2F5 /* SignUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SignUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE241ACF242A9F4C009EE2F5 /* SignUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTests.swift; sourceTree = "<group>"; };
 		AE241AD1242A9F4C009EE2F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE36F9FE242B02E8006CE62B /* SignUpCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCustomView.swift; sourceTree = "<group>"; };
+		AE36F9FE242B02E8006CE62B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		AE36FA01242B0510006CE62B /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		AE36FA11242B3855006CE62B /* RegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpression.swift; sourceTree = "<group>"; };
+		AE36FA15242B389A006CE62B /* SignUpDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpDataManager.swift; path = SignUp/Protocol/SignUpDataManager.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +87,11 @@
 		AE241AB7242A9F4A009EE2F5 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				AE36FA10242B382F006CE62B /* Protocol */,
 				AE36FA00242B0508006CE62B /* Extension */,
 				AE36F9FC242B02D0006CE62B /* SignUp */,
 				AE241AB8242A9F4A009EE2F5 /* AppDelegate.swift */,
 				AE241ABA242A9F4A009EE2F5 /* SceneDelegate.swift */,
-				AE241ABC242A9F4A009EE2F5 /* ViewController.swift */,
 				AE241ABE242A9F4A009EE2F5 /* Main.storyboard */,
 				AE241AC1242A9F4C009EE2F5 /* Assets.xcassets */,
 				AE241AC3242A9F4C009EE2F5 /* LaunchScreen.storyboard */,
@@ -108,7 +112,9 @@
 		AE36F9FC242B02D0006CE62B /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				AE36FA13242B387A006CE62B /* Model */,
 				AE36F9FD242B02DA006CE62B /* View */,
+				AE36FA14242B3880006CE62B /* Controller */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -116,7 +122,7 @@
 		AE36F9FD242B02DA006CE62B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AE36F9FE242B02E8006CE62B /* SignUpCustomView.swift */,
+				AE36F9FE242B02E8006CE62B /* SignUpView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -127,6 +133,30 @@
 				AE36FA01242B0510006CE62B /* String.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		AE36FA10242B382F006CE62B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				AE36FA11242B3855006CE62B /* RegularExpression.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		AE36FA13242B387A006CE62B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AE36FA15242B389A006CE62B /* SignUpDataManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AE36FA14242B3880006CE62B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AE241ABC242A9F4A009EE2F5 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,8 +260,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE36FA16242B389A006CE62B /* SignUpDataManager.swift in Sources */,
 				AE241ABD242A9F4A009EE2F5 /* ViewController.swift in Sources */,
-				AE36F9FF242B02E8006CE62B /* SignUpCustomView.swift in Sources */,
+				AE36F9FF242B02E8006CE62B /* SignUpView.swift in Sources */,
+				AE36FA12242B3855006CE62B /* RegularExpression.swift in Sources */,
 				AE36FA02242B0510006CE62B /* String.swift in Sources */,
 				AE241AB9242A9F4A009EE2F5 /* AppDelegate.swift in Sources */,
 				AE241ABB242A9F4A009EE2F5 /* SceneDelegate.swift in Sources */,
