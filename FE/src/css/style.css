@@ -1,0 +1,327 @@
+
+#container {
+  padding: 60px;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+select {
+  width: 100px;
+  padding: .8em .5em;
+  border: 0px;
+  background-color: #fff;
+  /* border-bottom: 1px solid #ccc; */
+  /* font-family: inherit; */
+  /* background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%; */
+  /* background: url('arrow.jpg') no-repeat 95% 50%; */
+  border-radius: 0px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* 회원가입 영역 */
+
+.account_comm {
+  display: table;
+  width: 100%;
+}
+
+.accountHead {
+  max-width: 520px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.wrap {
+  position: relative;
+  display: table-cell;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.mArticle {
+  width: 650px;
+  min-height: 600px;
+  position: relative;
+  margin: 40px auto;
+  padding: 15px 60px 50px;
+  border: 1px solid #41b883;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+
+/* 아이디 영역 */
+.id_container {
+  position: relative;
+}
+
+.txt_required {
+  display: block;
+  font-size: 12;
+  color: #000;
+  font-weight: normal;
+  margin-top: 40px;
+}
+
+.lab_placeholder_txt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  color: #ccc;
+  overflow: hidden;
+  display: block;
+  font-size: 15px;
+  cursor: pointer;
+  text-indent: 10px;
+}
+
+.screen_out {
+  overflow: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  text-indent: -9999px;
+}
+
+.user_input {
+  padding-right: 100px;
+  font-size: 18px;
+  width: 100%;
+  height: 40px;
+  border-width: 0 0 2px 0;
+  border-color: #ebebeb;
+  padding: 11px 70px 11px 0;
+  color: #252525;
+  outline: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  caret-color: #41b883;
+  text-indent: 10px;
+}
+
+.id_input:focus {
+  border-bottom: 2px solid #41b883;
+}
+
+/* 패스워드 영역 */
+
+.password_container {
+  position: relative;
+}
+
+
+.password-comfirm {
+  top: 60px;
+}
+
+/* 이름 */
+.user_name {
+  position: relative;
+}
+
+/* 생일 */
+.user_birth {
+  margin-top: 4px;
+  height: 40px;
+  border-bottom: 2px solid #ebebeb;
+}
+
+.item_select {
+  display: inline-block;
+}
+
+/* 성별 */
+.user_gender {
+  margin-top: 10px;
+}
+
+.gender_area {
+  width: 100px;
+}
+
+.id_gender {
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+/* 이메일 */
+.user_email {
+  position: relative;
+}
+
+/* 휴대전화 */
+.user_phone {
+  position: relative;
+}
+
+/* 관심사 */
+.user_interest {
+  position: relative;
+}
+
+
+/* 가입 초기화 */
+.btn {
+  margin: 10px;
+  background-color: #41b883;
+  color: #fff;
+  width: 200px;
+  height: 50px;
+}
+.btn-area {
+  text-align: center;
+}
+
+
+
+/* 약관  */
+.clauses-wrap {
+  position: relative;
+  outline: 1px solid #ccc;
+  padding: 10px;
+  height: 220px;
+  padding-top: 30px;
+}
+
+.clauses-text {
+  overflow-y: scroll;
+  width: 475px;
+  height: 70px;
+  outline: 1px solid #ccc;
+  padding: 20px;
+}
+
+.clauses-close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.clauses-agree-btn {
+  position: absolute;
+  width: 150px;
+  top: 185px;
+  left: 180px;
+}
+
+.item_select {
+  position: relative;
+}
+
+/* arrowdown */
+
+
+.arrow,
+.arrow:before {
+  position: absolute;
+  left: 45px;
+}
+
+.arrow {
+  /* width: 20px;
+  height: 20px; */
+  top: -5px;
+  /* margin: -20px 0 0 -20px; */
+  -webkit-transform: rotate(45deg);
+  border-left: none;
+  border-top: none;
+  /* border-right: 2px #000 solid; */
+  /* border-bottom: 2px #000 solid; */
+}
+
+.arrow:before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  top: 50%;
+  margin: -10px 0 0 -10px;
+  border-left: none;
+  border-top: none;
+  border-right: 1px #000 solid;
+  border-bottom: 1px #000 solid;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-name: arrow;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-10px, -10px);
+  }
+}
+
+/* asdf */
+
+.gender_container {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-right: 20px;
+}
+
+/* Hide the browser's default radio button */
+.gender_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.gender_container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.gender_container input:checked ~ .checkmark {
+  background-color: #41b883;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.gender_container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.gender_container .checkmark:after {
+ 	top: 6px;
+	left: 6px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
