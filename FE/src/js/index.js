@@ -148,3 +148,21 @@ function selectDay() {
 userBirthYear.addEventListener("change", selectYear);
 userBirthMonth.addEventListener("change", selectMonth);
 userBirthDay.addEventListener("change", selectDay);
+
+//메일
+const userEmail = $("#user-email");
+const emailLabel = $(".email_label");
+const emailLog = $(".emailLog");
+function userEmailValidation(e) {
+  const {target: { value }} = e;
+  labelHidden(emailLabel, value.length);
+  const emailReg = VALID_CHECK_REGEX.EMAIL;
+  if (!emailReg.test(value)) {
+    emailLog.style.color = "red";
+    emailLog.innerHTML = STATE_MESSAGE.INVALID.EMAIL;
+  } else {
+    emailLog.innerHTML = "";
+    signupData.email = value;
+  }
+}
+userEmail.addEventListener("input", userEmailValidation);
