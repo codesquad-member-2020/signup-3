@@ -264,5 +264,29 @@ function notifyJoinError(key) {
   }
 }
 
+//회원가입
+const signupBtn = $(".signup_btn");
+function signupHandler(e) {
+  e.preventDefault();
+  for (let [key, value] of Object.entries(signupData)) {
+    if (!value) {
+      notifyJoinError(key);
+      return;
+    }
+  }
+  joinRequest();
+}
+signupBtn.addEventListener("click", signupHandler);
 
-
+function joinRequest() {
+  const data = makeSignupJSON();
+  const tempURL = '' // 백엔드 회원가입 api 주소
+  fetch(tempURL, {
+      method: 'POST',
+      mode: 'cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+  })
+      .then(res => res.json())
+      .then(json => console.log(json));
+}
