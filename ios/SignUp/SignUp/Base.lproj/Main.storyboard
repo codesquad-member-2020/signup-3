@@ -22,9 +22,6 @@
                                         <rect key="frame" x="12" y="29" width="342" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="8bC-Xf-vdC" id="AzD-ha-T97"/>
-                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cn4-OB-oOu">
                                         <rect key="frame" x="4" y="4" width="36.5" height="17"/>
@@ -66,9 +63,6 @@
                                         <rect key="frame" x="12" y="29" width="342" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="8bC-Xf-vdC" id="QkZ-dJ-ed5"/>
-                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6V-jJ-5ks">
                                         <rect key="frame" x="4" y="4" width="48.5" height="17"/>
@@ -104,9 +98,6 @@
                                         <rect key="frame" x="12" y="29" width="342" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="8bC-Xf-vdC" id="goG-FE-oXk"/>
-                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 재확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwN-9R-kqN">
                                         <rect key="frame" x="4" y="4" width="89" height="17"/>
@@ -142,9 +133,6 @@
                                         <rect key="frame" x="12" y="29" width="342" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="8bC-Xf-vdC" id="6XI-Vf-m5h"/>
-                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbO-M5-uwA">
                                         <rect key="frame" x="4" y="4" width="24.5" height="17"/>

@@ -14,10 +14,16 @@
 		AE241AC2242A9F4C009EE2F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE241AC1242A9F4C009EE2F5 /* Assets.xcassets */; };
 		AE241AC5242A9F4C009EE2F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE241AC3242A9F4C009EE2F5 /* LaunchScreen.storyboard */; };
 		AE241AD0242A9F4C009EE2F5 /* SignUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE241ACF242A9F4C009EE2F5 /* SignUpTests.swift */; };
+		AE3405FD242BCA1F00499B8E /* IdentifierTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3405FC242BCA1F00499B8E /* IdentifierTextFieldDelegate.swift */; };
+		AE3405FF242BCB8C00499B8E /* PasswordTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3405FE242BCB8C00499B8E /* PasswordTextFieldDelegate.swift */; };
+		AE34FB0E242D9779000F33C8 /* TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34FB0D242D9779000F33C8 /* TypeAlias.swift */; };
 		AE36F9FF242B02E8006CE62B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE36F9FE242B02E8006CE62B /* SignUpView.swift */; };
 		AE36FA02242B0510006CE62B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE36FA01242B0510006CE62B /* String.swift */; };
-		AE36FA12242B3855006CE62B /* RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE36FA11242B3855006CE62B /* RegularExpression.swift */; };
+		AE36FA12242B3855006CE62B /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE36FA11242B3855006CE62B /* SignUpViewModel.swift */; };
 		AE36FA16242B389A006CE62B /* SignUpDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE36FA15242B389A006CE62B /* SignUpDataManager.swift */; };
+		AEAA8413242C8A4A0030BDE0 /* NotificationCenterName.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAA8412242C8A4A0030BDE0 /* NotificationCenterName.swift */; };
+		AEAA8415242C8CCF0030BDE0 /* ConfirmPasswordTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAA8414242C8CCF0030BDE0 /* ConfirmPasswordTextFieldDelegate.swift */; };
+		AEAA8417242C8CE50030BDE0 /* NameTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAA8416242C8CE50030BDE0 /* NameTextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,10 +48,16 @@
 		AE241ACB242A9F4C009EE2F5 /* SignUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SignUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE241ACF242A9F4C009EE2F5 /* SignUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTests.swift; sourceTree = "<group>"; };
 		AE241AD1242A9F4C009EE2F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE3405FC242BCA1F00499B8E /* IdentifierTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierTextFieldDelegate.swift; sourceTree = "<group>"; };
+		AE3405FE242BCB8C00499B8E /* PasswordTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextFieldDelegate.swift; sourceTree = "<group>"; };
+		AE34FB0D242D9779000F33C8 /* TypeAlias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAlias.swift; sourceTree = "<group>"; };
 		AE36F9FE242B02E8006CE62B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		AE36FA01242B0510006CE62B /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		AE36FA11242B3855006CE62B /* RegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpression.swift; sourceTree = "<group>"; };
+		AE36FA11242B3855006CE62B /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		AE36FA15242B389A006CE62B /* SignUpDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpDataManager.swift; path = SignUp/Protocol/SignUpDataManager.swift; sourceTree = SOURCE_ROOT; };
+		AEAA8412242C8A4A0030BDE0 /* NotificationCenterName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterName.swift; sourceTree = "<group>"; };
+		AEAA8414242C8CCF0030BDE0 /* ConfirmPasswordTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPasswordTextFieldDelegate.swift; sourceTree = "<group>"; };
+		AEAA8416242C8CE50030BDE0 /* NameTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTextFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +135,10 @@
 			isa = PBXGroup;
 			children = (
 				AE36F9FE242B02E8006CE62B /* SignUpView.swift */,
+				AE3405FC242BCA1F00499B8E /* IdentifierTextFieldDelegate.swift */,
+				AE3405FE242BCB8C00499B8E /* PasswordTextFieldDelegate.swift */,
+				AEAA8414242C8CCF0030BDE0 /* ConfirmPasswordTextFieldDelegate.swift */,
+				AEAA8416242C8CE50030BDE0 /* NameTextFieldDelegate.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -131,6 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				AE36FA01242B0510006CE62B /* String.swift */,
+				AEAA8412242C8A4A0030BDE0 /* NotificationCenterName.swift */,
+				AE34FB0D242D9779000F33C8 /* TypeAlias.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -138,7 +156,7 @@
 		AE36FA10242B382F006CE62B /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				AE36FA11242B3855006CE62B /* RegularExpression.swift */,
+				AE36FA11242B3855006CE62B /* SignUpViewModel.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -263,9 +281,15 @@
 				AE36FA16242B389A006CE62B /* SignUpDataManager.swift in Sources */,
 				AE241ABD242A9F4A009EE2F5 /* ViewController.swift in Sources */,
 				AE36F9FF242B02E8006CE62B /* SignUpView.swift in Sources */,
-				AE36FA12242B3855006CE62B /* RegularExpression.swift in Sources */,
+				AE34FB0E242D9779000F33C8 /* TypeAlias.swift in Sources */,
+				AE3405FF242BCB8C00499B8E /* PasswordTextFieldDelegate.swift in Sources */,
+				AE36FA12242B3855006CE62B /* SignUpViewModel.swift in Sources */,
+				AE3405FD242BCA1F00499B8E /* IdentifierTextFieldDelegate.swift in Sources */,
+				AEAA8413242C8A4A0030BDE0 /* NotificationCenterName.swift in Sources */,
 				AE36FA02242B0510006CE62B /* String.swift in Sources */,
+				AEAA8417242C8CE50030BDE0 /* NameTextFieldDelegate.swift in Sources */,
 				AE241AB9242A9F4A009EE2F5 /* AppDelegate.swift in Sources */,
+				AEAA8415242C8CCF0030BDE0 /* ConfirmPasswordTextFieldDelegate.swift in Sources */,
 				AE241ABB242A9F4A009EE2F5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
