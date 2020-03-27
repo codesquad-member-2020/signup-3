@@ -125,3 +125,26 @@ function selectGender() {
   }
 }
 userGender.addEventListener("change", selectGender);
+
+//생일
+const userBirthYear = $(".year");
+const userBirthMonth = $(".month");
+const userBirthDay = $(".day");
+function selectYear() {
+  const userYear = userBirthYear.options[userBirthYear.selectedIndex].value;
+  signupData.year = userYear;
+}
+
+function selectMonth() {
+  const userMonth = userBirthMonth.options[userBirthMonth.selectedIndex].value;
+  signupData.month = userMonth;
+}
+
+function selectDay() {
+  const userDay = userBirthDay.options[userBirthDay.selectedIndex].value;
+  signupData.day = userDay;
+}
+
+userBirthYear.addEventListener("change", selectYear);
+userBirthMonth.addEventListener("change", selectMonth);
+userBirthDay.addEventListener("change", selectDay);
