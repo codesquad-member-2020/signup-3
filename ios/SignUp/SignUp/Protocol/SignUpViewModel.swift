@@ -6,8 +6,14 @@
 //  Copyright © 2020 Cloud. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol SignUpViewModel: NSObject {
-    func applyRegularExpression(_ text: String, kinds: String, completion: (Bool, String, String) -> Void)
+    func applyIdentifierRegularExpression(_ text: String) -> results
+    func applyPasswordRegularExpression(_ text: String) -> results
+    func comfirmPassword(_ x: String, _ y: String) -> results
+    func isEmptyName(_ text: String) -> results
 }
+
+
+
