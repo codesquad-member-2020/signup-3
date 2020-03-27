@@ -7,3 +7,6 @@
 //
 
 import Foundation
+
+typealias Status = (idetnifier: Bool, password: Bool, confirmPassword: Bool, name: Bool)
+typealias results = (fact: Bool, fail: String, success: String)
