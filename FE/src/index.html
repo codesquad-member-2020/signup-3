@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div id="container">
+    <div class="account_comm">
+      <div class="wrap">
+        <div class="accountHead">
+          회원가입
+        </div>
+        <div class="mArticle">
+          <form onsubmit="event.preventDefault" autocomplete="off">
+            <fieldset>
+              <strong class="txt_required">계정 아이디</strong>
+              <div class="id_container">
+                <label class="lab_placeholder_txt id_label" for="user-id">아이디를 입력해주세요</label>
+                <input class="user_input" id="user-id" type="text"/>
+              </div>
+              <div class="userIdLog log"></div>
+              <strong class="txt_required">계정 패스워드</strong>
+              <div class="password_container">
+                <label class="lab_placeholder_txt password_label" for="user-password">비밀번호 (5~20자리)</label>
+                <input class="user_input" id="user-password" type="password"/>
+                <div class="passwordLog log"></div>
+                <label class="lab_placeholder_txt password-comfirm" for="password-comfirm">비밀번호 재입력</label>
+                <input class="user_input mt-20" id="password-comfirm" type="password"/>
+                <div class="passwordComfirmLog log"></div>
+              </div>
+              <strong class="txt_required">닉네임</strong>
+              <div class="user_name">
+                <label class="lab_placeholder_txt username_label" for="user-name">닉네임을 입력해주세요</label>
+                <input class="user_input" id="user-name" type="text"/>
+              </div>
+              <strong class="txt_required">생일 / 성별</strong>
+              <div class="user_birth">
+                <div class="item_select">
+                  <select class="select_base year">
+                    <option selected disabled hidden>연도</option>
+                    <option>2006</option>
+                    <option>2005</option>
+                  </select>
+                  <div class="arrow"></div>
+                </div>
+                <div class="item_select">
+                  <select class="select_base month">
+                    <option selected disabled hidden>월</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                  </select>
+                  <div class="arrow"></div>
+                </div>
+                <div class="item_select">
+                  <select class="select_base day">
+                    <option selected disabled hidden>일</option>
+                    <option>1</option>
+                    <option>2</option>
+                  </select>
+                  <div class="arrow"></div>
+                </div>
+              </div>
+              <div class="state-text"></div>
+              <div class="user_gender">
+                <label class="gender_container">선택 안함
+                  <input type="radio" checked="checked" name="gender" value="none">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="gender_container">여성
+                  <input type="radio" name="gender" value="f">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="gender_container">남성
+                  <input type="radio" name="gender" value="m">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <div class="genderLog log"></div>
+              <strong class="txt_required">이메일</strong>
+              <div class="user_email">
+                <label class="lab_placeholder_txt email_label" for="user-email">xxx@xxx.xxx</label>
+                <input class="user_input" id="user-email" type="text"/>
+              </div>
+              <div class="emailLog log"></div>
+              <strong class="txt_required">전화번호</strong>
+              <div class="user_phone">
+                <label class="lab_placeholder_txt phone_number_label" for="phone">- 없이 입력해주세요</label>
+                <input class="user_input" id="phone" type="text"/>
+              </div>
+              <div class="phoneLog log"></div>
+              <strong class="txt_required">관심사</strong>
+              <div class="user_interest">
+                <label class="lab_placeholder_txt" for="user-interest">관심사를 입력해주세요</label>
+                <input class="user_input" id="user-interest" type="text"/>
+              </div>
+              <div class="interestLog">3개 이상의 관심사를 입력하세요.</div>
+              <div class="signup-content">
+                <span class="content-agree-btn">약관에 동의합니다.</span>
+                <label><input type="checkbox" class="agree_btn" disabled="true"></label>
+              </div>
+              <div class="btn-area mt-20">
+                <button class="reset_btn btn">초기화</button>
+                <button class="signup_btn btn">가입하기</button>
+              </div>
+              <div class="clauses-wrap mt-20 active">
+                <div class="clauses-content">
+                  <h2 class="clauses-title">개인정보 수집 및 이용에 대한 안내</h2>
+                  <p class="clauses-text mt-20">
+                    <b>1. 개인정보처리방침의 의의</b><br>
+                    네이버는 본 개인정보처리방침을 정보통신망법을 기준으로 작성하되, 네이버 내에서의 이용자 개인정보 처리 현황을 최대한 알기 쉽고 상세하게 설명하기 위해 노력하였습니다.
+                    이는 쉬운 용어를 사용한 개인정보처리방침 작성 원칙인 ‘Plain Language Privacy Policy(쉬운 용어를 사용한 개인정보처리방침)’를 도입한 것입니다.
+                    <br><br><br>
+                    <b>2. 수집하는 개인정보</b><br>
+                    이용자는 회원가입을 하지 않아도 정보 검색, 뉴스 보기 등 대부분의 네이버 서비스를 회원과 동일하게 이용할 수 있습니다.
+                    이용자가 메일, 캘린더, 카페, 블로그 등과 같이 개인화 혹은 회원제 서비스를 이용하기 위해 회원가입을 할 경우, 네이버는 서비스 이용을 위해 필요한 최소한의 개인정보를
+                    수집합니다.
+                  </p>
+                  <button class="clauses-agree-btn btn" disabled="true">동의</button>
+                  <span class="clauses-close-btn">✖</span>
+                </div>
+             </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./js/index.js" type="module"></script>
+</body>
+</html>
