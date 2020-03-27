@@ -166,3 +166,22 @@ function userEmailValidation(e) {
   }
 }
 userEmail.addEventListener("input", userEmailValidation);
+
+//핸드폰
+const phoneNumberLabel = $(".phone_number_label");
+const phoneNumber = $("#phone");
+const phoneLog = $(".phoneLog");
+function userPhoneNumberValidation(e) {
+  const {target: { value }} = e;
+  labelHidden(phoneNumberLabel, value.length);
+
+  const phoneReg = VALID_CHECK_REGEX.PHONE_NUMBER;
+  if (!phoneReg.test(value)) {
+    phoneLog.style.color = "red";
+    phoneLog.innerHTML = STATE_MESSAGE.INVALID.PHONE_NUMBER;
+  } else {
+    phoneLog.innerHTML = "";
+    signupData.phoneNumber = value;
+  }
+}
+phoneNumber.addEventListener("input", userPhoneNumberValidation);
