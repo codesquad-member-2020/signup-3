@@ -5,22 +5,21 @@
 .mt-20 {
   margin-top: 20px;
 }
+
 select {
   width: 100px;
   padding: .8em .5em;
   border: 0px;
   background-color: #fff;
-  /* border-bottom: 1px solid #ccc; */
-  /* font-family: inherit; */
-  /* background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%; */
-  /* background: url('arrow.jpg') no-repeat 95% 50%; */
   border-radius: 0px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
 
-/* 회원가입 영역 */
+.label_hidden {
+  display: hidden;
+}
 
 .account_comm {
   display: table;
@@ -51,8 +50,6 @@ select {
   box-sizing: border-box;
 }
 
-
-/* 아이디 영역 */
 .id_container {
   position: relative;
 }
@@ -62,7 +59,7 @@ select {
   font-size: 12;
   color: #000;
   font-weight: normal;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .lab_placeholder_txt {
@@ -109,23 +106,22 @@ select {
   border-bottom: 2px solid #41b883;
 }
 
-/* 패스워드 영역 */
-
 .password_container {
   position: relative;
 }
 
-
 .password-comfirm {
-  top: 60px;
+  top: 78px;
 }
 
-/* 이름 */
+.passwordComfirmLog {
+  color: red;
+}
+
 .user_name {
   position: relative;
 }
 
-/* 생일 */
 .user_birth {
   margin-top: 4px;
   height: 40px;
@@ -136,7 +132,6 @@ select {
   display: inline-block;
 }
 
-/* 성별 */
 .user_gender {
   margin-top: 10px;
 }
@@ -150,23 +145,18 @@ select {
   margin-left: 10px;
 }
 
-/* 이메일 */
 .user_email {
   position: relative;
 }
 
-/* 휴대전화 */
 .user_phone {
   position: relative;
 }
 
-/* 관심사 */
 .user_interest {
   position: relative;
 }
 
-
-/* 가입 초기화 */
 .btn {
   margin: 10px;
   background-color: #41b883;
@@ -178,9 +168,6 @@ select {
   text-align: center;
 }
 
-
-
-/* 약관  */
 .clauses-wrap {
   position: relative;
   outline: 1px solid #ccc;
@@ -208,14 +195,12 @@ select {
   width: 150px;
   top: 185px;
   left: 180px;
+  background-color: #ccc;
 }
 
 .item_select {
   position: relative;
 }
-
-/* arrowdown */
-
 
 .arrow,
 .arrow:before {
@@ -224,15 +209,10 @@ select {
 }
 
 .arrow {
-  /* width: 20px;
-  height: 20px; */
   top: -5px;
-  /* margin: -20px 0 0 -20px; */
   -webkit-transform: rotate(45deg);
   border-left: none;
   border-top: none;
-  /* border-right: 2px #000 solid; */
-  /* border-bottom: 2px #000 solid; */
 }
 
 .arrow:before {
@@ -260,8 +240,6 @@ select {
   }
 }
 
-/* asdf */
-
 .gender_container {
   display: inline-block;
   position: relative;
@@ -276,14 +254,12 @@ select {
   margin-right: 20px;
 }
 
-/* Hide the browser's default radio button */
 .gender_container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
 
-/* Create a custom radio button */
 .checkmark {
   position: absolute;
   top: 0;
@@ -294,29 +270,24 @@ select {
   border-radius: 50%;
 }
 
-/* On mouse-over, add a grey background color */
 .gender_container:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
-/* When the radio button is checked, add a blue background */
 .gender_container input:checked ~ .checkmark {
   background-color: #41b883;
 }
 
-/* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-/* Show the indicator (dot/circle) when checked */
 .gender_container input:checked ~ .checkmark:after {
   display: block;
 }
 
-/* Style the indicator (dot/circle) */
 .gender_container .checkmark:after {
  	top: 6px;
 	left: 6px;
@@ -324,4 +295,29 @@ select {
 	height: 8px;
 	border-radius: 50%;
 	background: white;
+}
+
+.log {
+  height: 20px;
+  text-indent: 10px;
+}
+
+.active {
+  display: none;
+}
+
+.content-agree-btn {
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 10px;
+  color: #41b883;
+}
+
+.interestLog {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.genderLog {
+  color: red;
 }
