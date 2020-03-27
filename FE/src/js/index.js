@@ -98,3 +98,15 @@ function passwordComfirm(e) {
 }
 userPasswordInput.addEventListener("input", passwordValidation);
 userPasswordConfirmInput.addEventListener("input", passwordComfirm);
+
+// name
+const userName = $("#user-name");
+const userNameLabel = $(".username_label");
+function userNameValidation(e) {
+  const {
+    target: { value }} = e;
+  labelHidden(userNameLabel, value.length);
+  signupData.name = value;
+}
+userName.addEventListener("input", userNameValidation);
+
