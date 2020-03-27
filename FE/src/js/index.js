@@ -185,3 +185,41 @@ function userPhoneNumberValidation(e) {
   }
 }
 phoneNumber.addEventListener("input", userPhoneNumberValidation);
+
+//modal
+function activeModal() {
+  clausesWrap.classList.toggle("active");
+}
+
+function closeModal() {
+  clausesWrap.classList.add("active");
+}
+
+const clausesWrap = $(".clauses-wrap");
+const clausesCloseBtn = $(".clauses-close-btn");
+const clausesText = $(".clauses-text");
+const clausesAgreeBtn = $(".clauses-agree-btn");
+function clausesScrollEnd() {
+  if (
+    clausesText.offsetHeight + clausesText.scrollTop >=
+    clausesText.scrollHeight
+  ) {
+    clausesAgreeBtn.style.backgroundColor = "#41b883";
+    clausesAgreeBtn.disabled = false;
+    clausesAgreeBtn.style.cursor = "pointer";
+  }
+}
+
+const contentAgreeBtn = $(".content-agree-btn");
+const agreeCheckBtn = $(".agree_btn");
+function checkContent(e) {
+  e.preventDefault();
+  agreeCheckBtn.checked = true;
+  signupData.clausesAgree = true;
+}
+
+contentAgreeBtn.addEventListener("click", activeModal);
+clausesCloseBtn.addEventListener("click", closeModal);
+clausesText.addEventListener("scroll", clausesScrollEnd);
+clausesAgreeBtn.addEventListener("click", checkContent);
+
