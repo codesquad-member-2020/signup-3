@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol RegularExpression: NSObject {
-    func regex(_ text: String, kinds: String, completion: (Bool, String, String) -> Void)
+protocol SignUpViewModel: NSObject {
+    func applyRegularExpression(_ text: String, kinds: String, completion: (Bool, String, String) -> Void)
 }
