@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 final class SignUpView: UIView {
     
     // MARK: - IBOutlets
@@ -22,13 +24,61 @@ final class SignUpView: UIView {
     @IBOutlet weak var nextButton: UIButton!
     
     // MARK: - Properties
-    private let identifierTextFieldKey: String = "identifier"
-    private let passwordTextFieldKey: String = "password"
-    private let confirmPasswordTextFieldKey: String = "confirmPassword"
-    private let nameTextFieldKey: String = "name"
-    weak var datasoure: RegularExpression?
+    private var confirmStatus: Status = (false, false, false ,false) {
+        didSet {
+            NotificationCenter
+                .default
+                .post(
+                    name: Notification.Name.postEnabledButton,
+                    object: nil,
+                    userInfo: ["status": confirmStatus]
+            )
+        }
+    }
     
     // MARK: - Lifecycles
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        addObserver()
+    }
+    
+    deinit {
+        NotificationCenter
+            .default
+            .removeObserver(
+                self,
+                name: Notification.Name.identifier,
+                object: nil
+        )
+        NotificationCenter
+            .default
+            .removeObserver(
+                self,
+                name: Notification.Name.password,
+                object: nil
+        )
+        NotificationCenter
+            .default
+            .removeObserver(
+                self,
+                name: Notification.Name.isEnabledButton,
+                object: nil
+        )
+        NotificationCenter
+            .default
+            .removeObserver(
+                self,
+                name: Notification.Name.confirmPassword,
+                object: nil
+        )
+        NotificationCenter
+            .default
+            .removeObserver(
+                self,
+                name: Notification.Name.name,
+                object: nil
+        )
+    }
     
     // MARK: - IBActions
     @IBAction func gestureAction(_ sender: Any) {
@@ -36,86 +86,192 @@ final class SignUpView: UIView {
     }
     
     // MARK: - Methods
-    private func highlightingWithBlue(_ textField: UITextField, boderWidth: CGFloat) {
-        textField.layer.borderColor = UIColor.systemBlue.cgColor
-        textField.layer.borderWidth = boderWidth
+    private func addObserver() {
+        addObserverIdentifier()
+        addObserverPassword()
+        addObserverConfirmPassword()
+        addObserverName()
+        NotificationCenter
+            .default
+            .addObserver(
+                self,
+                selector: #selector(isEnabledNextButton),
+                name: Notification.Name.isEnabledButton,
+                object: nil
+        )
     }
     
-    private func applyViewWithRegularExpression(textField: UITextField, label: UILabel, result: Bool, message: ( fail: String, sucess: String)) {
-        textField.layer.borderWidth = result ? 2.0 : 0.0
-        textField.layer.borderColor = result ? UIColor.systemRed.cgColor : nil
-        label.text = result ? message.fail : message.sucess
-        label.textColor = result ? .systemRed : .systemGreen
+    private func addObserverIdentifier() {
+        NotificationCenter
+            .default
+            .addObserver(
+                self,
+                selector: #selector(passwordTextFieldBecomeFirstResponder),
+                name: Notification.Name.identifier,
+                object: nil
+        )
+        NotificationCenter
+            .default
+            .addObserver(
+                self,
+                selector: #selector(applyRegularExpressionWithIdentifier),
+                name: Notification.Name.regularExpressionWithIdentifier,
+                object: nil
+        )
     }
     
-    private func activateNextButton() {
-        let result = idetnfierStatusLabel.textColor == .systemGreen
-            && passwordStatusLabel.textColor == .systemGreen
-            && confirmPasswordStatusLabel.textColor == .systemGreen
-            && nameStatusLabel.text?.isEmpty ?? true
+    private func addObserverPassword() {
+        NotificationCenter
+            .default
+            .addObserver(
+                self,
+                selector: #selector(confirmPasswordTextFieldBecomFirstResponder),
+                name: Notification.Name.password,
+                object: nil
+        )
+        NotificationCenter
+            .default
+            .addObserver(
+                self,
+                selector: #selector(applyRegularExpressionWithPassword),
+                name: Notification.Name.regularExpressionWithPassword,
+                object: nil
+        )
+    }
+    
+    private func addObserverConfirmPassword() {
+        NotificationCenter
+            .default
+            .addObserver(
+                self,
+                selector: #selector(nameTextFieldBecomeFirstResponder),
+                name: Notification.Name.confirmPassword,
+                object: nil
+        )
+        NotificationCenter
+            .default
+            .addObserver(
+                self,
+                selector: #selector(postPassword),
+                name: Notification.Name.fetchPassword,
+                object: nil
+        )
+        NotificationCenter
+            .default
+            .addObserver(
+                self,
+                selector: #selector(comparePassword),
+                name: Notification.Name.comparePasswords,
+                object: nil
+        )
+    }
+    
+    private func addObserverName() {
+        NotificationCenter
+            .default
+            .addObserver(
+                self,
+                selector: #selector(nameTextFieldResignFirstResponder),
+                name: Notification.Name.name,
+                object: nil
+        )
+        NotificationCenter
+            .default
+            .addObserver(
+                self,
+                selector: #selector(isEmptyNameTextField),
+                name: Notification.Name.isEmptyName,
+                object: nil
+        )
+    }
+    
+    private func checkAvailability(textField: UITextField, label: UILabel, result: Bool, message: String) {
+        textField.layer.borderWidth = result ? 0.0 : 2.0
+        textField.layer.borderColor = result ? nil : UIColor.systemRed.cgColor
+        label.text = message
+        label.textColor = result ? .systemGreen : .systemRed
+    }
+    
+    @objc func passwordTextFieldBecomeFirstResponder() {
+        passwordTextField.becomeFirstResponder()
+    }
+    
+    @objc func confirmPasswordTextFieldBecomFirstResponder() {
+        confirmPasswordTextField.becomeFirstResponder()
+    }
+    
+    @objc func nameTextFieldBecomeFirstResponder() {
+        nameTextField.becomeFirstResponder()
+    }
+    
+    @objc func nameTextFieldResignFirstResponder() {
+        nameTextField.resignFirstResponder()
+    }
+    
+    @objc func applyRegularExpressionWithIdentifier(_ notification: Notification) {
+        guard let userInfo = notification.userInfo?.values,
+            let result = userInfo.first as? (fact: Bool, message: String) else { return }
+        checkAvailability(
+            textField: identifierTextField,
+            label: idetnfierStatusLabel,
+            result: result.fact,
+            message: result.message
+        )
+        confirmStatus.idetnifier = result.fact
+    }
+    
+    @objc func applyRegularExpressionWithPassword(_ notification: Notification) {
+        guard let userInfo = notification.userInfo?.values,
+            let result = userInfo.first as? (fact: Bool, message: String) else { return }
+        checkAvailability(
+            textField: passwordTextField,
+            label: passwordStatusLabel,
+            result: result.fact,
+            message: result.message
+        )
+        confirmStatus.password = result.fact
+    }
+    
+    @objc func postPassword() {
+        guard let text = passwordTextField.text else { return }
+        NotificationCenter
+            .default
+            .post(
+                name: Notification.Name.pushPassword,
+                object: nil,
+                userInfo: ["password": text]
+        )
+    }
+    
+    @objc func comparePassword(_ notification: Notification) {
+        guard let userInfo = notification.userInfo?.values,
+            let result = userInfo.first as? (fact: Bool, message: String) else { return }
+        checkAvailability(
+            textField: confirmPasswordTextField,
+            label: confirmPasswordStatusLabel,
+            result: result.fact,
+            message: result.message
+        )
+        confirmStatus.confirmPassword = result.fact
+    }
+    
+    @objc func isEmptyNameTextField(_ notification: Notification) {
+        guard let userInfo = notification.userInfo?.values,
+            let result = userInfo.first as? (fact: Bool, message: String) else { return }
+        checkAvailability(
+            textField: nameTextField,
+            label: nameStatusLabel,
+            result: result.fact,
+            message: result.message
+        )
+        confirmStatus.name = result.fact
+    }
+    
+    @objc func isEnabledNextButton(_ notification: Notification) {
+        guard let userInfo = notification.userInfo?.values,
+            let result = userInfo.first as? Bool else { return }
         nextButton.tintColor = result ? .systemGreen : .systemGray
-        nextButton.isEnabled = result ? true : false
+        nextButton.isEnabled = result
         nextButton.setTitleColor(result ? .systemGreen : .systemGray, for: .normal)
-    }
-}
-
-extension SignUpView: UITextFieldDelegate {
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        highlightingWithBlue(textField, boderWidth: 2.0)
-        return true
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switch textField.restorationIdentifier {
-        case identifierTextFieldKey:
-            passwordTextField.becomeFirstResponder()
-        case passwordTextFieldKey:
-            confirmPasswordTextField.becomeFirstResponder()
-        case confirmPasswordTextFieldKey:
-            nameTextField.becomeFirstResponder()
-        default:
-            textField.resignFirstResponder()
-        }
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let text = textField.text else { return }
-        switch textField.restorationIdentifier {
-        case identifierTextFieldKey:
-            datasoure?.regex(text, kinds: "identifier") { result, fail, sucess  in
-                applyViewWithRegularExpression(
-                    textField: textField,
-                    label: idetnfierStatusLabel,
-                    result: result,
-                    message: (fail,sucess)
-                )
-            }
-        case passwordTextFieldKey:
-            datasoure?.regex(text, kinds: "password") { result, fail, sucess in
-                applyViewWithRegularExpression(
-                    textField: textField,
-                    label: passwordStatusLabel,
-                    result: result,
-                    message: (fail, sucess)
-                )
-            }
-        case confirmPasswordTextFieldKey:
-            let result = passwordTextField.text == textField.text && !(textField.text?.isEmpty ?? true)
-            applyViewWithRegularExpression(
-                textField: textField,
-                label: confirmPasswordStatusLabel,
-                result: !result,
-                message: ("비밀번호가 일치하지 않습니다.","비밀번호가 일치합니다.")
-            )
-        default:
-            applyViewWithRegularExpression(
-                textField: textField,
-                label: nameStatusLabel,
-                result: textField.text?.isEmpty ?? true,
-                message: ("이름은 필수 입력 항목입니다.","")
-            )
-        }
-        activateNextButton()
     }
 }
