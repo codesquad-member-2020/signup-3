@@ -16,27 +16,26 @@
           회원가입
         </div>
         <div class="mArticle">
-          <form onsubmit="event.preventDefault();">
+          <form onsubmit="event.preventDefault" autocomplete="off">
             <fieldset>
               <strong class="txt_required">계정 아이디</strong>
               <div class="id_container">
-                <label class="lab_placeholder_txt" for="user-id"
-                  >아이디를 입력해주세요</label>
+                <label class="lab_placeholder_txt id_label" for="user-id">아이디를 입력해주세요</label>
                 <input class="user_input" id="user-id" type="text"/>
               </div>
+              <div class="userIdLog log"></div>
               <strong class="txt_required">계정 패스워드</strong>
               <div class="password_container">
-                <label class="lab_placeholder_txt" for="user-password"
-                  >비밀번호 (5~20자리)</label>
+                <label class="lab_placeholder_txt password_label" for="user-password">비밀번호 (5~20자리)</label>
                 <input class="user_input" id="user-password" type="password"/>
-                <label class="lab_placeholder_txt password-comfirm" for="password-comfirm"
-                  >비밀번호 재입력</label>
+                <div class="passwordLog log"></div>
+                <label class="lab_placeholder_txt password-comfirm" for="password-comfirm">비밀번호 재입력</label>
                 <input class="user_input mt-20" id="password-comfirm" type="password"/>
+                <div class="passwordComfirmLog log"></div>
               </div>
               <strong class="txt_required">닉네임</strong>
               <div class="user_name">
-                <label class="lab_placeholder_txt" for="user-name"
-                  >닉네임을 입력해주세요</label>
+                <label class="lab_placeholder_txt username_label" for="user-name">닉네임을 입력해주세요</label>
                 <input class="user_input" id="user-name" type="text"/>
               </div>
               <strong class="txt_required">생일 / 성별</strong>
@@ -50,7 +49,7 @@
                   <div class="arrow"></div>
                 </div>
                 <div class="item_select">
-                  <select class="select_base">
+                  <select class="select_base month">
                     <option selected disabled hidden>월</option>
                     <option>1</option>
                     <option>2</option>
@@ -68,7 +67,7 @@
                   <div class="arrow"></div>
                 </div>
                 <div class="item_select">
-                  <select class="select_base">
+                  <select class="select_base day">
                     <option selected disabled hidden>일</option>
                     <option>1</option>
                     <option>2</option>
@@ -79,45 +78,45 @@
               <div class="state-text"></div>
               <div class="user_gender">
                 <label class="gender_container">선택 안함
-                  <input type="radio" checked="checked" name="radio">
+                  <input type="radio" checked="checked" name="gender" value="none">
                   <span class="checkmark"></span>
                 </label>
                 <label class="gender_container">여성
-                  <input type="radio" name="radio">
+                  <input type="radio" name="gender" value="f">
                   <span class="checkmark"></span>
                 </label>
                 <label class="gender_container">남성
-                  <input type="radio" name="radio">
+                  <input type="radio" name="gender" value="m">
                   <span class="checkmark"></span>
                 </label>
               </div>
+              <div class="genderLog log"></div>
               <strong class="txt_required">이메일</strong>
               <div class="user_email">
-                <label class="lab_placeholder_txt" for="user-email"
-                  >xxx@xxx.xxx</label>
+                <label class="lab_placeholder_txt email_label" for="user-email">xxx@xxx.xxx</label>
                 <input class="user_input" id="user-email" type="text"/>
               </div>
+              <div class="emailLog log"></div>
               <strong class="txt_required">전화번호</strong>
               <div class="user_phone">
-                <label class="lab_placeholder_txt" for="user-phone"
-                  >- 없이 입력해주세요</label>
-                <input class="user_input" id="user-phone" type="text"/>
+                <label class="lab_placeholder_txt phone_number_label" for="phone">- 없이 입력해주세요</label>
+                <input class="user_input" id="phone" type="text"/>
               </div>
+              <div class="phoneLog log"></div>
               <strong class="txt_required">관심사</strong>
               <div class="user_interest">
-                <label class="lab_placeholder_txt" for="user-interest"
-                  >관심사를 입력해주세요</label>
+                <label class="lab_placeholder_txt" for="user-interest">관심사를 입력해주세요</label>
                 <input class="user_input" id="user-interest" type="text"/>
               </div>
-              <div>3개 이상의 관심사를 입력하세요.</div>
-              <div class="">약관에 동의합니다.
-                <label><input type="checkbox" name="agree_btn" value="agree"></label>
+              <div class="interestLog">3개 이상의 관심사를 입력하세요.</div>
+              <div class="signup-content">
+                <span class="content-agree-btn">약관에 동의합니다.</span>
+                <label><input type="checkbox" class="agree_btn" disabled="true"></label>
               </div>
               <div class="btn-area mt-20">
                 <button class="reset_btn btn">초기화</button>
                 <button class="signup_btn btn">가입하기</button>
               </div>
-
               <div class="clauses-wrap mt-20 active">
                 <div class="clauses-content">
                   <h2 class="clauses-title">개인정보 수집 및 이용에 대한 안내</h2>
