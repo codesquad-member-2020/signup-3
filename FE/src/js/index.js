@@ -110,3 +110,18 @@ function userNameValidation(e) {
 }
 userName.addEventListener("input", userNameValidation);
 
+
+//성별
+const genderLog = $(".genderLog");
+const userGender = $(".user_gender");
+function selectGender() {
+  const genderData = document.querySelector('input[name="gender"]:checked').value;
+  if (genderData == "none") {
+    signupData.sex = genderData;
+    genderLog.innerHTML = STATE_MESSAGE.INVALID.GENDER;
+  } else {
+    signupData.sex = genderData;
+    genderLog.innerHTML = "";
+  }
+}
+userGender.addEventListener("change", selectGender);
