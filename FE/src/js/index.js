@@ -223,3 +223,46 @@ clausesCloseBtn.addEventListener("click", closeModal);
 clausesText.addEventListener("scroll", clausesScrollEnd);
 clausesAgreeBtn.addEventListener("click", checkContent);
 
+//경고 메시지
+function notifyJoinError(key) {
+  switch (key) {
+    case "userId":
+      alert(ALERT_MESSAGE.JOIN_INVALID.ID);
+      break;
+    case "password":
+      alert(ALERT_MESSAGE.JOIN_INVALID.PASSWORD);
+      break;
+    case "passwordRecheck":
+      alert(ALERT_MESSAGE.JOIN_INVALID.PASSWORD);
+      break;
+    case "name":
+      alert(ALERT_MESSAGE.JOIN_INVALID.NAME);
+      break;
+    case "year":
+      alert(ALERT_MESSAGE.JOIN_INVALID.BIRTH_DATE);
+      break;
+    case "month":
+      alert(ALERT_MESSAGE.JOIN_INVALID.BIRTH_DATE);
+      break;
+    case "day":
+      alert(ALERT_MESSAGE.JOIN_INVALID.BIRTH_DATE);
+      break;
+    case "sex":
+      alert(ALERT_MESSAGE.JOIN_INVALID.GENDER);
+      break;
+    case "email":
+      alert(ALERT_MESSAGE.JOIN_INVALID.EMAIL);
+      break;
+    case "phoneNumber":
+      alert(ALERT_MESSAGE.JOIN_INVALID.PHONE_NUMBER);
+      break;
+    case "interest":
+      alert(ALERT_MESSAGE.JOIN_INVALID.INTERESTS);
+      break;
+    case "clausesAgree":
+      alert(ALERT_MESSAGE.JOIN_INVALID.CLAUSES);
+  }
+}
+
+
+
