@@ -54,3 +54,47 @@ function userIdValidation(e) {
     checkedUserId() 
   }
 }
+
+//passwod
+const userPasswordInput = $("#user-password");
+const passwordLog = $(".passwordLog");
+const passwordLabel = $(".password_label");
+const passwordComfirmLog = $(".passwordComfirmLog");
+const userPasswordConfirmInput = $("#password-comfirm");
+const passwordComfirmLabel = $(".password-comfirm");
+function passwordValidation(e) {
+  const {target: { value }} = e;
+  labelHidden(passwordLabel, value.length);
+  const passwordRegLength = VALID_CHECK_REGEX.PASSWORD.LENGTH;
+  const passwordRegUpper = VALID_CHECK_REGEX.PASSWORD.UPPER;
+  const passwordRegNumber = VALID_CHECK_REGEX.PASSWORD.NUMBER;
+  const passwordRegSpecial = VALID_CHECK_REGEX.PASSWORD.SPECIAL;
+  passwordLog.style.color = "red";
+  if (!passwordRegLength.test(value)) {
+    passwordLog.innerHTML = STATE_MESSAGE.INVALID.PASSWORD.LENGTH;
+  } else if (!passwordRegNumber.test(value)) {
+    passwordLog.innerHTML = STATE_MESSAGE.INVALID.PASSWORD.NUMBER;
+  } else if (!passwordRegUpper.test(value)) {
+    passwordLog.innerHTML = STATE_MESSAGE.INVALID.PASSWORD.UPPER;
+  } else if (!passwordRegSpecial.test(value)) {
+    passwordLog.innerHTML = STATE_MESSAGE.INVALID.PASSWORD.SPECIAL;
+  } else {
+    passwordLog.style.color = "green";
+    passwordLog.innerHTML = STATE_MESSAGE.VALID.PASSWORD;
+    signupData.password = value;
+  }
+}
+
+function passwordComfirm(e) {
+  const {target: { value }} = e;
+  labelHidden(passwordComfirmLabel, value.length);
+  if (value == userPasswordInput.value) {
+    passwordComfirmLog.innerHTML = STATE_MESSAGE.VALID.PASSWORD_RECHECK;
+    passwordComfirmLog.style.color = "green";
+    signupData.passwordRecheck = value;
+  } else {
+    passwordComfirmLog.innerHTML = STATE_MESSAGE.INVALID.PASSWORD_RECHECK;
+  }
+}
+userPasswordInput.addEventListener("input", passwordValidation);
+userPasswordConfirmInput.addEventListener("input", passwordComfirm);
